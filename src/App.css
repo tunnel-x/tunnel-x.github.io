@@ -1,0 +1,111 @@
+body {
+  background-color: #FAFAFA;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  position: fixed;
+  background-color: #F44336;
+  left: 50%;
+  width: 50%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*justify-content: center;*/
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+#Background {
+  position: fixed;
+  background-color: rgb(190, 9, 190);
+  top: 0px;
+  left: 0px;
+  width: 50%;
+  height: 100%;
+  z-index: 1;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.Button {
+  background: #FFFFFF;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+  border-radius: 20px;
+}
+
+.Status {
+  background: #FFFFFF;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+  border-radius: 20px;
+}
+
+.Menu {
+  top: 0px;
+  width: 100%;
+  height: 100px;
+  background: #BB0F03;
+
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+.Menu-button {
+  font-family: Roboto-Bold;
+  font-size: 34px;
+  width: 30%px;
+  color: #FFFFFF;
+  background: none;
+  padding: 0;
+  border: none;
+  outline: none; 
+  text-align: center;
+}
+.Menu-button:hover {
+  cursor: pointer;
+  color: #E9EDF1;
+  }
+  
+.Menu-button:active {
+  outline: none;
+  border: none;
+  color: #E9EDF1;
+}
+  
+.Menu-button:focus {
+  outline:0;
+  color: #bebebe;
+}
+
+.Left-side {
+  position: fixed;
+  top: 0px;
+  width: 50%;
+}
+
+.Left {
+  background: #E9EDF1;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
