@@ -7,8 +7,23 @@ body {
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+  position: relative;
+  top: 5vmin;
+  /*animation: App-logo-spin infinite 20s linear;*/
+  height: 150px;
+  pointer-events: none;
+}
+
+.App-title {
+  position: fixed;
+  align-self: left;
+  height: 50px;
+  margin-top: 25px;
+}
+
+.App-name {
+  position: relative;
+  top: 5vmin;
   pointer-events: none;
 }
 
@@ -39,11 +54,57 @@ body {
 .App-link {
   color: #61dafb;
 }
+.Home {
+  width:  100%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+
+.home-row-medium {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+.home-colm {
+  flex: 1;
+}
+.home-row {
+  justify-items: center;
+}
+
+.home-status {
+  margin-left:-20%;
+  height: 240px !important;
+  width: 40%;
+}
 
 .Button {
+  margin-left: 5%;
+  margin-top: 10px;
+  display: flex;
   background: #FFFFFF;
+  font-family: Roboto-Bold;
+  font-size: 20px;
+  text-align: left;
+  flex-direction: row;
+  align-items: center;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
   border-radius: 20px;
+  color: #000000;
+  height: 120px;
+  width: 90%;
+}
+
+.btn-image {
+  margin-left:10px;
+  size: 10px;
+  width: 80%;
+  height: auto;
+}
+
+.Big {
+
 }
 
 .Status {
@@ -95,6 +156,11 @@ body {
   position: fixed;
   top: 0px;
   width: 50%;
+}
+
+.left-body {
+  direction: row;
+  justify-items: center;
 }
 
 .Left {
