@@ -77,10 +77,6 @@ body {
 .home-row {
   justify-items: center;
 }
-.hover-left {
-  margin-left:-20% !important;
-  width:115% !important;
-}
 .home-status {
   height: 240px !important;
   width: 40%;
@@ -91,18 +87,25 @@ body {
 .Button {
   margin-left: 5%;
   margin-top: 10px;
-  display: flex;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+  border-radius: 20px;
+  height: 120px;
+  width: 90%;
   background: #FFFFFF;
+  color: #000000;
   font-family: Roboto-Bold;
   font-size: 18px;
   text-align: left;
+  display: flex;
   flex-direction: row;
   align-items: center;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
-  border-radius: 20px;
-  color: #000000;
-  height: 120px;
-  width: 90%;
+}
+
+.Button:hover {
+  background: #E9EDF1;
+}
+.Button:active {
+  background: rgb(208, 211, 214);
 }
 
 .btn-image {
@@ -124,7 +127,6 @@ body {
   height: 100px;
   background: #BB0F03;
 
-  border-radius: 10px;
   display: flex;
   justify-content: space-around;
   
@@ -133,7 +135,7 @@ body {
 .Menu-button {
   font-family: Roboto-Bold;
   font-size: 34px;
-  width: 30%px;
+  width: 30%;
   color: #FFFFFF;
   background: none;
   padding: 0;
@@ -154,7 +156,11 @@ body {
   
 .Menu-button:focus {
   outline:0;
-  color: #bebebe;
+  border-radius: 30px;
+  margin-top: 8%;
+  height: 80%;
+  border-radius: 20px;
+  background-color: #F44336;
 }
 
 .Left-side {
@@ -196,7 +202,7 @@ body {
     width: 100%;}
   .home-status {
     flex: 1;
-    margin-left:0%;
+    margin-left:0% !important;
     height: 130px !important;
   }
   .Button {
@@ -218,6 +224,10 @@ body {
 
 @media only screen and (min-width: 1001px) {
   /* For desktop: */
+  .hover-left {
+    margin-left:-20% !important;
+    width:115% !important;
+  }
 }
 
 @keyframes App-logo-spin {
@@ -227,4 +237,24 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+
+body::after, body::before {
+  /* these are the 2 half blocks which cover the content once the animation is triggered */
+  height: 50vh;
+  width: 100%;
+  position: fixed;
+  left: 0;
+}
+body::before {
+  top: 0;
+  transform: translateY(-100%);
+}
+body::after {
+  bottom: 0;
+  transform: translateY(100%);
+}
+body.page-is-changing::after, body.page-is-changing::before {
+  transform: translateY(0);
 }

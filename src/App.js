@@ -13,10 +13,23 @@ import Status from './Status.js';
 import './App.css';
 
 class App extends Component {
+  state = {
+    cover:false
+  };
+
+  changePage = () => {
+    this.setState(prevState => ({ cover: !prevState.cover }));
+    console.log(this.state.cover);
+    //<div className={`body ${this.state.cover ? "" : "page-is-changing"}`}>
+  }
+
   render() {
+    const { cover } = this.state.cover;
+    console.log( this.state.cover );
     return (
       
-      <div className="App" id="background">
+    <div className="App" id="background">
+      
       <div className="Left-side">
         <div className="Menu Left">
           <img src={title} className="App-title" alt="logo" />
@@ -34,7 +47,7 @@ class App extends Component {
       <header className="App-header">
           <div className="Menu">
             <button className="Menu-button"> Home </button>
-            <button className="Menu-button"> About Us </button>
+            <button onClick={this.changePage} className="Menu-button"> About Us </button>
             <button className="Menu-button"> Contact </button>
           </div>
 
@@ -44,7 +57,7 @@ class App extends Component {
                 <Status message="THE SPACE IS" ></Status>
               </div>
               <div className="home-colm small">
-                <Button name="SHIFT HOURS" image={time}></Button>
+                <Button onClick={this.changePage} name="SHIFT HOURS" image={time}></Button>
                 <Button name="MAKE RESERVATION" image={reserved}> </Button>
               </div>              
             </div>
@@ -68,6 +81,8 @@ class App extends Component {
 
           </div>
         </header>
+
+        <div className="cd-cover-layer"></div>
       </div>
     );
   }

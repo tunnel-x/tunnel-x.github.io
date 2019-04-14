@@ -12,7 +12,7 @@ class Button extends Component {
     return ( 
         <div className="Button">        
           <div >
-            <img src={this.state.image} className="btn-image" alt="image"/>
+            <img src={this.state.image} className="btn-image" alt=""/>
           </div>
           <div style={{marginLeft:10}}>
             <h1>{this.state.name}</h1>

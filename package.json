@@ -2,7 +2,7 @@
   "name": "website",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tunnel-x.github.io/",
+  "homepage": "https://tunnel-x.github.io/website",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
