@@ -31,7 +31,7 @@ class App extends Component {
         </div>  
       </div>
       
-        <header className="App-header">
+      <header className="App-header">
           <div className="Menu">
             <button className="Menu-button"> Home </button>
             <button className="Menu-button"> About Us </button>
@@ -39,11 +39,11 @@ class App extends Component {
           </div>
 
           <div className="Home">
-            <div className="home-row-medium">
-              <div className="home-status">
+            <div className="home-row-medium hover-left">
+              <div className="home-colm medium">
                 <Status message="THE SPACE IS" ></Status>
               </div>
-              <div className="home-colm">
+              <div className="home-colm small">
                 <Button name="SHIFT HOURS" image={time}></Button>
                 <Button name="MAKE RESERVATION" image={reserved}> </Button>
               </div>              
@@ -63,6 +63,7 @@ class App extends Component {
               <div className="home-colm">
                 <Button name="SSS" image={question}></Button>
               </div>  
+              
             </div>
 
           </div>

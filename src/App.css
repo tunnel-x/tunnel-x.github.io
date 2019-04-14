@@ -4,6 +4,7 @@ body {
 
 .App {
   text-align: center;
+  overflow-y: scroll;
 }
 
 .App-logo {
@@ -16,9 +17,10 @@ body {
 
 .App-title {
   position: fixed;
-  align-self: left;
+  align-self: left !important;
   height: 50px;
   margin-top: 25px;
+  margin-left: -15%;
 }
 
 .App-name {
@@ -55,6 +57,7 @@ body {
   color: #61dafb;
 }
 .Home {
+  height: 1000px;
   width:  100%;
   display: flex;
   flex-direction: column;
@@ -62,6 +65,8 @@ body {
 }
 
 .home-row-medium {
+  width:  95%;
+  left:  3%;
   position: relative;
   display: flex;
   flex-direction: row;
@@ -72,11 +77,15 @@ body {
 .home-row {
   justify-items: center;
 }
-
+.hover-left {
+  margin-left:-20% !important;
+  width:115% !important;
+}
 .home-status {
-  margin-left:-20%;
   height: 240px !important;
   width: 40%;
+  flex-direction: column !important;
+  display: flex;
 }
 
 .Button {
@@ -85,7 +94,7 @@ body {
   display: flex;
   background: #FFFFFF;
   font-family: Roboto-Bold;
-  font-size: 20px;
+  font-size: 18px;
   text-align: left;
   flex-direction: row;
   align-items: center;
@@ -101,10 +110,6 @@ body {
   size: 10px;
   width: 80%;
   height: auto;
-}
-
-.Big {
-
 }
 
 .Status {
@@ -165,6 +170,54 @@ body {
 
 .Left {
   background: #E9EDF1;
+}
+
+@media only screen and (max-height: 800px) {
+  .Button {
+    height: 80px;
+    font-size: 10px;
+  }
+  .btn-image {
+    width: 45%;
+    height: auto;
+  }
+  .home-status {
+    height: 160px !important;
+  }
+}
+@media only screen and (max-width: 900px) {
+  /* For mobile: */
+  .Left-side {display: none;}
+  .App-logo {display: none;}
+  .App-title {display: none;}
+  .App-title {display: none;}
+  .App-header{  
+    left: 0%;
+    width: 100%;}
+  .home-status {
+    flex: 1;
+    margin-left:0%;
+    height: 130px !important;
+  }
+  .Button {
+    font-size: 10px;
+    height: 60px;
+  }
+  .btn-image {
+    size: 5px;
+    width: 40%;
+    height: auto;
+  }
+  .Menu {
+    height: 50px;
+  }
+  .Menu-button {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (min-width: 1001px) {
+  /* For desktop: */
 }
 
 @keyframes App-logo-spin {
