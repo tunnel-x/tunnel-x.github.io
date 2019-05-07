@@ -1,35 +1,76 @@
 import React, { Component } from 'react';
+import {
+  Route,
+  NavLink,
+  Switch
+} from "react-router-dom";
+import Home from './Home';
+import About from './About';
+import Contact from './Contact';
 import logo from './assets/logo.png';
 import title from './assets/tunnel-x.png';
 import logoName from './assets/tunnelx.png';
-import time from './assets/time.png';
-import question from './assets/question.png';
-import image from './assets/image.png';
-import reserved from './assets/reserved.png';
-import tool from './assets/tool.png';
-import elearning from './assets/elearning.png';
-import Button from './Button.js';
-import Status from './Status.js';
 import './App.css';
+
 
 class App extends Component {
   state = {
     cover:false
   };
+  
+  Boxlayout = function() {
 
-  changePage = () => {
-    this.setState(prevState => ({ cover: !prevState.cover }));
-    console.log(this.state.cover);
-    //<div className={`body ${this.state.cover ? "" : "page-is-changing"}`}>
-  }
+    var wrapper = document.body,
+        sections = Array.from(document.querySelectorAll('.section')),
+        closeButtons = Array.from(document.querySelectorAll('.close-section')),
+        expandedClass = 'is-expanded',
+        hasExpandedClass = 'has-expanded-item';
+  
+    return { init : init };
+  
+    function init() {
+      _initEvents();
+    }
+  
+    function _initEvents() {    
+      sections.forEach(function(element) {
+        element.onclick = function() {
+          _openSection(this);
+        };
+      });
+      closeButtons.forEach(function(element) {
+        element.onclick = function(element) {
+          element.stopPropagation();
+          _closeSection(this.parentElement);
+        };
+      });
+    }
+  
+    function _openSection(element) {
+      if ( ! element.classList.contains(expandedClass) ) {
+        element.classList.add(expandedClass);
+        wrapper.classList.add(hasExpandedClass);
+      }
+    }
+  
+    function _closeSection(element) {
+      if ( element.classList.contains(expandedClass) ) {
+        element.classList.remove(expandedClass);
+        wrapper.classList.remove(hasExpandedClass);
+      }
+    }
+  
+  }();
+  
 
   render() {
     const { cover } = this.state.cover;
     console.log( this.state.cover );
+
+    this.Boxlayout.init();
     return (
       
     <div className="App" id="background">
-      
       <div className="Left-side">
         <div className="Menu Left">
           <img src={title} className="App-title" alt="logo" />
@@ -46,41 +87,18 @@ class App extends Component {
       
       <header className="App-header">
           <div className="Menu">
-            <button className="Menu-button"> Home </button>
-            <button onClick={this.changePage} className="Menu-button"> About Us </button>
-            <button className="Menu-button"> Contact </button>
+            <NavLink exact to="/" className="Menu-button" activeClassName="Menu-button" > Home </NavLink>
+            <NavLink to="/about" className="Menu-button" > About Us </NavLink>
+             <NavLink to="/contact" className="Menu-button" > Contact </NavLink>
           </div>
+        <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
+        </Switch>
+      </header>
 
-          <div className="Home">
-            <div className="home-row-medium hover-left">
-              <div className="home-colm medium">
-                <Status message="THE SPACE IS" ></Status>
-              </div>
-              <div className="home-colm small">
-                <Button onClick={this.changePage} name="SHIFT HOURS" image={time}></Button>
-                <Button name="MAKE RESERVATION" image={reserved}> </Button>
-              </div>              
-            </div>
-
-            <div className="home-row">
-              <Button name="I TOOK SOMETHING" image={tool}></Button>
-            </div>
-            <div className="home-row">
-              <Button name="I USED THE MAKERSPACE" image={elearning}></Button>
-            </div>
-
-            <div className="home-row-medium">
-              <div className="home-colm">
-                <Button name="PHOTO GALLERY" image={image}></Button>
-              </div>
-              <div className="home-colm">
-                <Button name="SSS" image={question}></Button>
-              </div>  
-              
-            </div>
-
-          </div>
-        </header>
+     
 
         <div className="cd-cover-layer"></div>
       </div>

@@ -136,12 +136,14 @@ body {
   font-family: Roboto-Bold;
   font-size: 34px;
   width: 30%;
+  margin-top: 20px;
   color: #FFFFFF;
   background: none;
   padding: 0;
   border: none;
   outline: none; 
   text-align: center;
+  text-decoration: none;
 }
 .Menu-button:hover {
   cursor: pointer;
@@ -152,12 +154,17 @@ body {
   outline: none;
   border: none;
   color: #E9EDF1;
+  border-radius: 30px;
+  margin-top: 40px;
+  height: 80%;
+  border-radius: 20px;
+  background-color: #F44336;
 }
   
 .Menu-button:focus {
   outline:0;
   border-radius: 30px;
-  margin-top: 8%;
+  margin-top: 40px;
   height: 80%;
   border-radius: 20px;
   background-color: #F44336;
@@ -202,7 +209,7 @@ body {
     width: 100%;}
   .home-status {
     flex: 1;
-    margin-left:0% !important;
+    margin-left:5% !important;
     height: 130px !important;
   }
   .Button {
@@ -219,6 +226,10 @@ body {
   }
   .Menu-button {
     font-size: 15px;
+  }
+  .Menu-button:focus {
+    margin-top: 20px;
+    border-radius: 15px;
   }
 }
 
@@ -258,3 +269,5 @@ body::after {
 body.page-is-changing::after, body.page-is-changing::before {
   transform: translateY(0);
 }
+
+
