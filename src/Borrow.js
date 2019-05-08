@@ -1,13 +1,13 @@
 import React from 'react'
 
-const Contact = () => {
+const Borrow = () => {
     return(
         <div>
             <h1>
-                tunnelx@ku.edu.tr
+                I Borrowed 
             </h1>
         </div>
     )
 }
 
-export default Contact;
+export default Borrow;

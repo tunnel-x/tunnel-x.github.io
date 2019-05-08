@@ -23,24 +23,24 @@ const Home = () => {
                 <Status message="THE SPACE IS" ></Status>
               </div>
               <div className="home-colm small">
-                <Button onClick={""} name="SHIFT HOURS" image={time}></Button>
-                <Button name="MAKE RESERVATION" image={reserved}> </Button>
+                <Button to="/shiftHours" name="SHIFT HOURS" image={time}></Button>
+                <Button to="/reservation" name="MAKE RESERVATION" image={reserved}> </Button>
               </div>              
             </div>
 
             <div className="home-row">
-              <Button name="I TOOK SOMETHING" image={tool}></Button>
+              <Button to="/borrow" name="I TOOK SOMETHING" image={tool}></Button>
             </div>
             <div className="home-row">
-              <Button name="I USED THE MAKERSPACE" image={elearning}></Button>
+              <Button to="/usage" name="I USED THE MAKERSPACE" image={elearning}></Button>
             </div>
 
             <div className="home-row-medium">
               <div className="home-colm">
-                <Button name="PHOTO GALLERY" image={image}></Button>
+                <Button to="/gallery" name="PHOTO GALLERY" image={image}></Button>
               </div>
               <div className="home-colm">
-                <Button name="SSS" image={question}></Button>
+                <Button to="/FAQ" name="FAQ" image={question}></Button>
               </div>  
             </div>
           </div>

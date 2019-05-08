@@ -99,6 +99,13 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
+  outline: none;
+  text-decoration: none;
+}
+
+.Link {
+  outline: none;
+  text-decoration: none;
 }
 
 .Button:hover {

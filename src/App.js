@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import {
   Route,
-  NavLink,
+  Link,
   Switch
 } from "react-router-dom";
 import Home from './Home';
 import About from './About';
 import Contact from './Contact';
+import Borrow from './Borrow';
 import logo from './assets/logo.png';
 import title from './assets/tunnel-x.png';
 import logoName from './assets/tunnelx.png';
@@ -87,14 +88,15 @@ class App extends Component {
       
       <header className="App-header">
           <div className="Menu">
-            <NavLink exact to="/" className="Menu-button" activeClassName="Menu-button" > Home </NavLink>
-            <NavLink to="/about" className="Menu-button" > About Us </NavLink>
-             <NavLink to="/contact" className="Menu-button" > Contact </NavLink>
+            <Link exact to="/" className="Menu-button" activeClassName="Menu-button" > Home </Link>
+            <Link to="/about" className="Menu-button" > About Us </Link>
+             <Link to="/contact" className="Menu-button" > Contact </Link>
           </div>
         <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
+            <Route path="/borrow" component={Borrow} />
         </Switch>
       </header>
 
