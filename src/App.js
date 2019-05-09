@@ -8,6 +8,8 @@ import Home from './Home';
 import About from './About';
 import Contact from './Contact';
 import Borrow from './Borrow';
+import Usage from './Usage';
+import Reservation from './Reservation';
 import logo from './assets/logo.png';
 import title from './assets/tunnel-x.png';
 import logoName from './assets/tunnelx.png';
@@ -97,6 +99,8 @@ class App extends Component {
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/borrow" component={Borrow} />
+            <Route path="/usage" component={Usage} />
+            <Route path="/reservation" component={Reservation} />
         </Switch>
       </header>
 

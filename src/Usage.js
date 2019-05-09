@@ -11,7 +11,7 @@ class Borrow extends Component {
             surname: '',
             email: '',
             tool: '',
-            phone: '',
+            hour: '',
         };
     
         this.handleChange = this.handleChange.bind(this);
@@ -21,11 +21,13 @@ class Borrow extends Component {
     }
     
     handleChange(event) {
-        const target = event.target;
-        let value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
+      const target = event.target;
+      let value = target.type === 'checkbox' ? target.checked : target.value;
+      const name = target.name;
       if(name === 'email') {
-        value = event.target.value.toLowerCase();
+        value = event.target.value.replace('@ku.edu.tr','');
+        value = event.target.value.replace('@ku.edu.t','');
+        value = value + '@ku.edu.tr';  
       } else if(name === 'phone') { 
         value = event.target.value.replace(/\D/g,'');
       } else {
@@ -35,9 +37,9 @@ class Borrow extends Component {
     }
 
     handleSubmit(event) {
-        alert('Your borrow request was submitted: ' + this.state.tool);
-        event.preventDefault();
-        this.saveToStorage();
+      alert('Your reservation was submitted: ' + this.state.name);
+      event.preventDefault();
+      this.saveToStorage();
     }
     
     saveToStorage() {
@@ -62,13 +64,11 @@ class Borrow extends Component {
             email: data.email,
             phone: data.phone,
         });
-
     }
 
     componentDidMount() {
         this.recover();
     }
-
     render() {
         
         return(
@@ -77,7 +77,7 @@ class Borrow extends Component {
                     <a href="#" class="close"/>
                 </Link>
                 <h1>
-                    Borrow a Tool !
+                    I was here !
                 </h1>
                 <form className="form" onSubmit={this.handleSubmit}>
                 <div className="form-line">
@@ -93,12 +93,23 @@ class Borrow extends Component {
                     <input className="form-input" type="text" name="email" value={this.state.email} onChange={this.handleChange} />
                 </div>  
                 <div className="form-line">
-                    <label className="form-label">Tool Name :</label> 
-                    <input className="form-input" type="text" name="tool" value={this.state.tool} onChange={this.handleChange} />
+                    <label className="form-label">Tool Type :</label> 
+                    <select className="form-input" type="text" name="tool" value={this.state.tool} onChange={this.handleChange}>
+                      <option value="3D Printer">3D Printer</option>
+                      <option value="Electronics">Electronics</option>
+                      <option value="Drills">Drills</option>
+                      <option value="Study">Study</option>
+                      <option value="Art">Art</option>
+                      <option value="Other">Other</option>
+                    </select>
                 </div>  
                 <div className="form-line">
-                    <label className="form-label">Phone Number :</label> 
-                    <input className="form-input" type="text" name="phone" value={this.state.phone} onChange={this.handleChange} />
+                    <label className="form-label">Hour :</label> 
+                    <select className="form-input" type="text" name="phone" value={this.state.phone} onChange={this.handleChange}>
+                      <option value="15">0-30 min</option>
+                      <option value="45">30-60 min</option>
+                      <option value="60">More than 60</option>
+                    </select>
                 </div>                 
                 <input className="form-submit"type="submit" value="Submit" />
                 </form>
