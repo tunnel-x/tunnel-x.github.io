@@ -93,7 +93,9 @@ body {
   width: 90%;
   background: #FFFFFF;
   color: #000000;
-  font-family: Roboto-Bold;
+  font-family: 'roboto', Arial, sans-serif;
+  font-weight:900; 
+  font-style:normal;
   font-size: 18px;
   text-align: left;
   display: flex;
@@ -140,7 +142,9 @@ body {
 }
 
 .Menu-button {
-  font-family: Roboto-Bold;
+  font-family: 'roboto', Arial, sans-serif;
+  font-weight:900; 
+  font-style:normal;
   font-size: 34px;
   width: 30%;
   margin-top: 20px;
@@ -161,8 +165,7 @@ body {
   outline: none;
   border: none;
   color: #E9EDF1;
-  border-radius: 30px;
-  margin-top: 40px;
+  border-radius: 10px;
   height: 80%;
   border-radius: 20px;
   background-color: #F44336;
@@ -170,7 +173,7 @@ body {
   
 .Menu-button:focus {
   outline:0;
-  border-radius: 30px;
+  border-radius: 10px;
   margin-top: 40px;
   height: 80%;
   border-radius: 20px;
@@ -235,8 +238,12 @@ body {
     font-size: 15px;
   }
   .Menu-button:focus {
-    margin-top: 20px;
-    border-radius: 15px;
+    margin-top: 10px;
+    border-radius: 10px;
+  }
+  .close:before, .close:after {
+    left: 45px;
+    top: 75px !important;
   }
 }
 
@@ -277,4 +284,24 @@ body.page-is-changing::after, body.page-is-changing::before {
   transform: translateY(0);
 }
 
-
+.close {
+  opacity: 0.3;
+}
+.close:hover {
+  opacity: 1;
+}
+.close:before, .close:after {
+  position: absolute;
+  left: 45px;
+  top: 125px;
+  content: ' ';
+  height: 43px;
+  width: 8px;
+  background-color: #fff;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
