@@ -14,6 +14,7 @@ import Construction from './Construction';
 import logo from './assets/logo.png';
 import title from './assets/tunnel-x.png';
 import logoName from './assets/tunnelx.png';
+import map from './assets/map.jpg';
 import './App.css';
 
 
@@ -81,10 +82,10 @@ class App extends Component {
         </div>
         <div className="left-body">
           <div>
-            <img src={logo} className="App-logo" alt="logo" />
+            <img src={logoName} className="App-name" alt="logo" />
           </div>
           <div>
-            <img src={logoName} className="App-name" alt="logo" />
+            <img src={map} className="map" alt=""/>
           </div>
         </div>  
       </div>
