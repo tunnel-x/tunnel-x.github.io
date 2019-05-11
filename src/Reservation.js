@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
     Link,
   } from "react-router-dom";
+import API_URL from './config';
 
 class Borrow extends Component {
     constructor(props) {
@@ -37,8 +38,34 @@ class Borrow extends Component {
     }
 
     handleSubmit(event) {
-      alert('Your reservation was submitted: ' + this.state.name);
       event.preventDefault();
+      const url = API_URL + '/space/reservation';
+      let reservation = {};
+      reservation.name = this.state.name;
+      reservation.surname = this.state.surname;
+      reservation.email = this.state.email;
+      reservation.note = this.state.note;
+      reservation.phone = this.state.phone;
+      if(reservation.name === '' || 
+        reservation.surname === '' || 
+        reservation.email === '' || 
+        reservation.note === '' || 
+        reservation.phone === '' ) {
+          return;
+      }
+      this.setState({note: ''});
+      fetch(url, { // optional fetch options
+          body: JSON.stringify(reservation), 
+          headers: {
+            'content-type': 'application/json'
+          },
+          method: 'POST',
+      })
+      .then(function(response) {
+          // check status @ response.status etc.
+          alert('Your reservation was submitted: ' + reservation.name);
+          return response;//.json(); // parses json
+      });
       this.saveToStorage();
     }
     
@@ -99,7 +126,7 @@ class Borrow extends Component {
                 </div>
                 <div className="form-line">
                   <label className="form-label">Note :</label> 
-                  <input className="form-input" type="text" name="tool" value={this.state.note} onChange={this.handleChange} />
+                  <input className="form-input" type="text" name="note" value={this.state.note} onChange={this.handleChange} />
                 </div>                   
                 <input className="form-submit"type="submit" value="Submit" />
                 </form>

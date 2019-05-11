@@ -15,7 +15,7 @@ const Home = () => {
     //     console.log(this.state.cover);
     //     //<div className={`body ${this.state.cover ? "" : "page-is-changing"}`}>
     //   }
-      
+
     return(
         <div className="Home">
             <div className="home-row-medium hover-left">
@@ -23,7 +23,7 @@ const Home = () => {
                 <Status message="THE SPACE IS" ></Status>
               </div>
               <div className="home-colm small">
-                <Button to="/shiftHours" name="SHIFT HOURS" image={time}></Button>
+                <Button to="/construction" name="SHIFT HOURS" image={time}></Button>
                 <Button to="/reservation" name="MAKE RESERVATION" image={reserved}> </Button>
               </div>              
             </div>
@@ -37,10 +37,10 @@ const Home = () => {
 
             <div className="home-row-medium">
               <div className="home-colm">
-                <Button to="/gallery" name="PHOTO GALLERY" image={image}></Button>
+                <Button to="/construction" name="PHOTO GALLERY" image={image}></Button>
               </div>
               <div className="home-colm">
-                <Button to="/FAQ" name="FAQ" image={question}></Button>
+                <Button to="/construction" name="FAQ" image={question}></Button>
               </div>  
             </div>
           </div>

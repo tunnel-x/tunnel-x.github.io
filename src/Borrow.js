@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
     Link,
   } from "react-router-dom";
+import API_URL from './config';
 
 class Borrow extends Component {
     constructor(props) {
@@ -12,6 +13,7 @@ class Borrow extends Component {
             email: '',
             tool: '',
             phone: '',
+            history: {},
         };
     
         this.handleChange = this.handleChange.bind(this);
@@ -19,7 +21,7 @@ class Borrow extends Component {
         this.saveToStorage = this.saveToStorage.bind(this);
         this.recover = this.recover.bind(this)
     }
-    
+
     handleChange(event) {
         const target = event.target;
         let value = target.type === 'checkbox' ? target.checked : target.value;
@@ -35,13 +37,39 @@ class Borrow extends Component {
     }
 
     handleSubmit(event) {
-        alert('Your borrow request was submitted: ' + this.state.tool);
+        const url = API_URL + '/space/borrow';
+        let borrow = {};
+        borrow.name = this.state.name;
+        borrow.surname = this.state.surname;
+        borrow.email = this.state.email;
+        borrow.tool = this.state.tool;
+        borrow.phone = this.state.phone;
+        if ( borrow.name === '' ||
+            borrow.surname === '' ||
+            borrow.email === '' ||
+            borrow.tool === '' ||
+            borrow.phone === '' ) {
+                return;
+        }
+        this.setState({tool: ''});
+        fetch(url, { // optional fetch options
+            body: JSON.stringify(borrow), 
+            headers: {
+              'content-type': 'application/json'
+            },
+            method: 'POST',
+        })
+        .then(function(response) {
+            // check status @ response.status etc.
+            alert('Your borrow request was submitted ' + borrow.name);
+            return response;//.json(); // parses json
+        });
         event.preventDefault();
         this.saveToStorage();
     }
     
     saveToStorage() {
-        let data = this.state.history;
+        let data = {};
         data.name = this.state.name;
         data.surname = this.state.surname;
         data.email = this.state.email;

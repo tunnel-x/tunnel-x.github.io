@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://tunnel-x.github.io/",
   "dependencies": {
+    "dotenv": "^8.0.0",
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -11,7 +12,7 @@
     "react-scripts": "2.1.8"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start --config prod.env",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

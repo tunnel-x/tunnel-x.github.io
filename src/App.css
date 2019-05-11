@@ -350,7 +350,6 @@ body.page-is-changing::after, body.page-is-changing::before {
 
 .form-submit {
   display: inline-block;
-  border-radius: 2rem;
   border: 2px solid #F44336;
   padding: .2rem .6rem;
   color: #F44336;

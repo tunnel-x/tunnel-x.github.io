@@ -10,6 +10,7 @@ import Contact from './Contact';
 import Borrow from './Borrow';
 import Usage from './Usage';
 import Reservation from './Reservation';
+import Construction from './Construction';
 import logo from './assets/logo.png';
 import title from './assets/tunnel-x.png';
 import logoName from './assets/tunnelx.png';
@@ -92,7 +93,7 @@ class App extends Component {
           <div className="Menu">
             <Link exact to="/" className="Menu-button" activeClassName="Menu-button" > Home </Link>
             <Link to="/about" className="Menu-button" > About Us </Link>
-             <Link to="/contact" className="Menu-button" > Contact </Link>
+            <Link to="/contact" className="Menu-button" > Contact </Link>
           </div>
         <Switch>
             <Route exact path="/" component={Home} />
@@ -101,6 +102,7 @@ class App extends Component {
             <Route path="/borrow" component={Borrow} />
             <Route path="/usage" component={Usage} />
             <Route path="/reservation" component={Reservation} />
+            <Route path="/construction" component={Construction} />
         </Switch>
       </header>
 

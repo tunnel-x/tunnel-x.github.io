@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
     Link,
   } from "react-router-dom";
+import API_URL from './config';
 
 class Borrow extends Component {
     constructor(props) {
@@ -30,6 +31,8 @@ class Borrow extends Component {
         value = value + '@ku.edu.tr';  
       } else if(name === 'phone') { 
         value = event.target.value.replace(/\D/g,'');
+      } else if(name === 'tool' || name === 'hour') {
+        value = event.target.value;
       } else {
         value = event.target.value.toUpperCase(); 
       }
@@ -37,8 +40,36 @@ class Borrow extends Component {
     }
 
     handleSubmit(event) {
-      alert('Your reservation was submitted: ' + this.state.name);
       event.preventDefault();
+      const url = API_URL + '/space/usage';
+      let usage = {};
+      usage.name = this.state.name;
+      usage.surname = this.state.surname;
+      usage.email = this.state.email;
+      usage.tool = this.state.tool;
+      usage.hour = this.state.hour;
+      if(
+        usage.name === '' ||
+        usage.surname === '' ||
+        usage.email === ''
+      ) {
+        return;
+      }
+      this.setState({
+        tool: '',
+        hour: ''});
+      fetch(url, { // optional fetch options
+          body: JSON.stringify(usage), 
+          headers: {
+            'content-type': 'application/json'
+          },
+          method: 'POST',
+      })
+      .then(function(response) {
+          // check status @ response.status etc.
+          alert('Your usage was submitted: ' + usage.hour);
+          return response;//.json(); // parses json
+      });
       this.saveToStorage();
     }
     
@@ -105,7 +136,7 @@ class Borrow extends Component {
                 </div>  
                 <div className="form-line">
                     <label className="form-label">Hour :</label> 
-                    <select className="form-input" type="text" name="phone" value={this.state.phone} onChange={this.handleChange}>
+                    <select className="form-input" type="text" name="hour" value={this.state.hour} onChange={this.handleChange}>
                       <option value="15">0-30 min</option>
                       <option value="45">30-60 min</option>
                       <option value="60">More than 60</option>
