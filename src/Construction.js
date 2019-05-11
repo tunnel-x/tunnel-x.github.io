@@ -14,14 +14,17 @@ class Construction extends Component {
     render() {
         
         return(
-            <div style={{width: 500}}>
-                <Link to="/" className="Link close">
-                    <a href="#" class="close"/>
-                </Link>
+            <div>
+                <div style={{width: 500}}>
+                    <Link to="/" className="Link close">
+                        <a href="#" class="close"/>
+                    </Link>                
+                </div>
+                <div>
                 <h1>
                     This page is under construction
                 </h1>
-                
+                </div>
             </div>
         )
       }

@@ -26,9 +26,10 @@ class Borrow extends Component {
       let value = target.type === 'checkbox' ? target.checked : target.value;
       const name = target.name;
       if(name === 'email') {
-        value = event.target.value.replace('@ku.edu.tr','');
-        value = event.target.value.replace('@ku.edu.t','');
-        value = value + '@ku.edu.tr';  
+        value = event.target.value.toUpperCase();
+        //value = event.target.value.replace('@ku.edu.tr','');
+        //value = event.target.value.replace('@ku.edu.t','');
+        //value = value + '@ku.edu.tr';  
       } else if(name === 'phone') { 
         value = event.target.value.replace(/\D/g,'');
       } else if(name === 'tool' || name === 'hour') {
